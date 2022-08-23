@@ -29,7 +29,7 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <button type="submit" class="btn btn-primary my-3">Login</button>
             <br>
-            <small>You don't have account? <a href="" class="text-decoration-none">Sign up!</a></small>
+            <small>You don't have account? <a href="{{ path('app_signup') }}" class="text-decoration-none">Sign up!</a></small>
         </form>
     </div>
 

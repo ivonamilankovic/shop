@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block body %}
+
+    <div class="container w-50">
+        <h2 class="my-5 text-center mx-auto">Welcome! Here you can sign up!</h2>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <br>
+            <button type="submit" class="btn btn-primary">Register</button>
+        {{ form_end(form) }}
+        <br>
+        <small>You already have account? <a href="{{ path('app_login') }}" class="text-decoration-none">Log in!</a></small>
+    </div>
+
+{% endblock %}
