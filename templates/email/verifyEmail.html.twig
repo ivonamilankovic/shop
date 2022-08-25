@@ -1,0 +1,26 @@
+<!doctype html>
+{% apply inline_css(source('@styles/email.css')) %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ email.subject }}</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome!</h1>
+    <h3>Hello, {{ email.toName }}!</h3>
+    <p>
+        To verify your account and be able to login, click on the link below!
+    </p>
+    <br>
+    <a href="{{ verification_link }}" class="button">Verify</a>
+</div>
+
+</body>
+</html>
+
+{% endapply %}

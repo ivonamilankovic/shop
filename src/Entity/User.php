@@ -62,6 +62,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private string $phoneNumber;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $isVerified = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -186,4 +191,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getFullName(): string
+    {
+        return $this->getFirstName() . ' ' . $this->getLastName();
+    }
+
 }
