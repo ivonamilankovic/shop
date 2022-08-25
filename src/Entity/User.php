@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Service\UploadImagesHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -66,6 +67,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private bool $isVerified = false;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $picture = null;
 
     public function getId(): ?int
     {
@@ -209,4 +215,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->getFirstName() . ' ' . $this->getLastName();
     }
 
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getPicturePath(): string
+    {
+        return './uploads' . UploadImagesHelper::PROFILE_PICTURES . '/' . $this->getPicture();
+    }
 }

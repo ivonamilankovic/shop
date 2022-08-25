@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Profile Info{% endblock %}
+
+{% block body %}
+
+    {% set formUploadImage = forms['formUploadImage'] %}
+    {% set formProfileInfo = forms['formProfileInfo'] %}
+    {% set formChangePassword = forms['formChangePassword'] %}
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-sm-12 col-md-6">
+                <h1>Profile Info</h1>
+                <div class="ms-md-4 pt-md-2 pb-sm-3 pb-md-0">
+                    <h5 class="mt-3">Profile picture</h5>
+                    {% if app.user.picture %}
+                    <img src="{{ asset(app.user.picturePath) }}" alt="profile picture" class="py-4">
+                    {% endif %}
+                    <br>
+                    {{ form_start(formUploadImage) }}
+                    {{ form_widget(formUploadImage) }}
+                    {{ form_end(formUploadImage) }}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 ">
+                {{ form_start(formProfileInfo) }}
+                {{ form_widget(formProfileInfo) }}
+                {{ form_end(formProfileInfo) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-8 mx-auto">
+                <h3 class="my-3">Change password</h3>
+                {{ form_start(formChangePassword) }}
+                {{ form_widget(formChangePassword) }}
+                {{ form_end(formChangePassword) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
