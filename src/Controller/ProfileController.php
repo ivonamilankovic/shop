@@ -31,13 +31,12 @@ class ProfileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
                 /** @var UploadedFile $uploadedFile */
-                //TODO kako razlikovati submitove?
-                if($form->get('Upload_profile_picture')->isClicked()){
+                if($form->getName() === "upload_profile_image_form"){
                     $uploadedFile = $form['picture']->getData();
                     $newFileName = $uploadImagesHelper->uploadProfileImage($uploadedFile);
                     $user->setPicture($newFileName);
                 }
-                if($form->get('Change')->isClicked()){
+                if($form->getName() === "change_password_form"){
                     $plainPassword = $form->get('password')->getData();
                     $hashedPassword = $hasher->hashPassword($user, $plainPassword);
                     $user->setPassword($hashedPassword);
