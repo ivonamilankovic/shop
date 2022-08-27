@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Products{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+        {% for p in products %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="p-3 my-3 bg-white rounded shadow">
+                    <h3>{{ p.name }}</h3>
+                    <hr>
+                    <p>{{ p.description }}</p>
+                    <a class="btn btn-warning">${{ p.price }}</a>
+                    <hr>
+                    <small class="text-end">Posted: {{ p.createdAt | ago }}</small>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
