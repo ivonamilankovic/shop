@@ -71,6 +71,14 @@ class Product
         return $this;
     }
 
+    public function getShortDescription() :string
+    {
+        if(strlen($this->description) > 300){
+            return substr($this->description,0, 300). '...';
+        }
+        return $this->description;
+    }
+
     public function getPrice(): ?int
     {
         return $this->price;
