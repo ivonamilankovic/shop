@@ -4,24 +4,12 @@
 
 {% block body %}
 
-    <div class="container">
-        {% for p in products %}
-            <div class="w-75 mx-auto">
-                <div class="p-3 my-3 border rounded shadow">
-                    <div class="d-flex justify-content-between mt-2">
-                        <a class="h3 text-decoration-none text-black" href="{{ path('app_products_one', {'id': p.id }) }}">{{ p.name }}</a>
-                        <div class="p-2 rounded d-inline text-warning fst-italic fw-bold">${{ p.price }}</div>
-                    </div>
-                    <hr>
-                    <p class="mx-5">{{ p.shortDescription }}</p>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <a class="btn btn-primary" href="{{ path('app_products_one', {'id': p.id}) }}">See more</a>
-                        <small class="d-block text-muted">Published: {{ p.createdAt | ago }}</small>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    <div class="container" id="all_products"></div>
+
+{% endblock %}
+
+{%  block javascripts %}
+
+    {{ encore_entry_script_tags('all_products')}}
 
 {% endblock %}

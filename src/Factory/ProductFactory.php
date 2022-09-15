@@ -45,7 +45,7 @@ final class ProductFactory extends ModelFactory
     {
         // see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
         return $this
-            // ->afterInstantiate(function(Product $product): void {})
+            // ->afterInstantiate(function(ProductList $product): void {})
         ;
     }
 

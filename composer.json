@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.11",
+        "friendsofsymfony/jsrouting-bundle": "^2.8",
         "gedmo/doctrine-extensions": "^3.8",
         "knplabs/knp-time-bundle": "^1.19",
         "league/html-to-markdown": "^5.1",

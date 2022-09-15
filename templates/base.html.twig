@@ -9,6 +9,7 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('search') }}
         {% endblock %}
     </head>
     <body>
@@ -19,7 +20,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_products') }}">Products</a>
@@ -40,6 +41,10 @@
                         </li>
                     {% endif %}
                 </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" id="searchInput" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-info" type="submit" id="searchButton"><img src="https://cdn-icons-png.flaticon.com/512/64/64673.png" alt="search" width="15"></button>
+                </form>
             </div>
         </div>
     </nav>
